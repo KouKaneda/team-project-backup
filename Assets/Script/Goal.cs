@@ -1,16 +1,14 @@
 using UnityEngine;
-using UnityEngine.SceneManagement;
 
 public class Goal : MonoBehaviour
 {
-    [SerializeField] private string nextSceneName;
-
     private void OnTriggerEnter(Collider other)
     {
-        // Playerタグのオブジェクトだけ反応
+        // 触れたのがプレイヤーなら
         if (other.CompareTag("Player"))
         {
-            SceneManager.LoadScene(nextSceneName);
+            // GameManagerに「ゲームクリア」を報告する！
+            GameManager.instance.GameClear();
         }
     }
 }

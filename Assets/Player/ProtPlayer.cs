@@ -1,7 +1,7 @@
-using UnityEngine;
+﻿using UnityEngine;
 using UnityEngine.InputSystem;
 
-public class PlayerMove : MonoBehaviour
+public class ProtPlayer : MonoBehaviour
 {
     [SerializeField]
     private float moveSpeed = 5f;
@@ -22,11 +22,12 @@ public class PlayerMove : MonoBehaviour
         if (Keyboard.current.dKey.isPressed)
             input.x += 1;
 
-        // �v���C���[��ړ�
-        Vector3 move =
-            transform.forward * input.y +
-            transform.right * input.x;
+        // プレイヤー基準移動
+        Vector3 move =
+      transform.forward * input.y +
+      transform.right * input.x;
 
         transform.position += move.normalized * moveSpeed * Time.deltaTime;
     }
 }
+
